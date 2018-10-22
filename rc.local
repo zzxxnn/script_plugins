@@ -1,0 +1,20 @@
+#!/bin/bash -e
+#
+# rc.local
+#
+# This script is executed at the end of each multiuser runlevel.
+# Make sure that the script will "exit 0" on success or any other
+# value on error.
+#
+# In order to enable or disable this script just change the execution
+# bits.
+#
+# By default this script does nothing.
+
+#echo "sdasd" >> /tmp/aaa
+#su root
+#nohup /usr/bin/vncserver -geometry 1920x1080 >> /tmp/aaa.out &
+su root -c '/usr/bin/vncserver -name root -depth 16 -geometry 1920x1080 :1'
+/root/Desktop/frp_0.21.0_linux_amd64/frps -c /root/Desktop/frp_0.21.0_linux_amd64/frps.ini
+#echo "sdasdi3232323" >> /tmp/aaa
+exit 0
