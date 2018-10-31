@@ -1,0 +1,44 @@
+web服务器安装教程
+
+1.mysql
+	yum -y install mariadb mariadb-server
+	systemctl start mariadb
+	设置root用户密码为root
+		mysql_secure_installation
+		第一次回车然后输入root密码
+	在命令行进入数据库（mysql -uroot -proot）
+	新建数据库ybzcdb（create database ybzcdb；）
+	进入ybzcdb（use ybzcdb；）
+	source ybzcdb.sql
+
+2.nginx
+	新建文件夹/web （mkdir /web）
+	拷贝nginx-1.11.10到 /web
+
+3.yb web源码
+	新建文件夹/web/www_root
+	拷贝yb-web/api 目录到www_root
+
+4.php
+	cp php/libmcrypt.so.4 /usr/lib
+	cp php/libzookeeper_mt.so.2 /usr/lib
+	cp php/php-fpm/php-fpm.d /etc/
+	cp php/php-fpm/bin/php-fpm /bin/
+	cp php/php-fpm/php-fpm.conf /etc/
+	cp php/php/bin/* /bin/
+	cp php/php/php.ini /etc/
+	cp php/php/php.d /etc/
+	cp php/php/lib/* /usr/lib/php
+	
+5.elasticsearch
+	useradd es
+	解压elasticsearch-6.2.4.tar到/home/es目录下
+	chmod -R 777 解压的文件夹
+
+6.logstash
+	新建文件夹/root/Desktop/soft_ware
+	解压logstash-6.2.4.tar 到soft_ware文件夹
+	复制logstash.conf到 /root/Desktop/soft_ware/logstash-6.2.4/bin文件夹
+
+7.zookeeper
+	解压zookeeper-3.4.10.tar 到soft_ware文件夹

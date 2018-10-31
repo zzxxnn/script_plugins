@@ -1,0 +1,29 @@
+10.127.208.76 WEB服务器启动流程
+
+service mariadb start
+
+vncserver
+
+service firewalled stop
+
+cd /root/Desktop/soft_ware/zookeeper/bin
+./ZKserver.sh start
+
+mkdir -p /var/run/php-fpm
+touch /var/run/php-fpm/php-fpm.pid
+php-fpm -R
+
+cd /web/nginx-1.11.10
+./nginx
+
+sysctl vm.max_map_count=655360
+cd /home/es/elasticsearch-6.2.4/bin/
+su es
+./elasticsearch
+
+cd /root/Desktop/soft_ware/logstash-6.2.4/bin
+./logstash -f logstash.conf
+
+cd /root/Desktop/web_log
+python SyslogProcess.py
+

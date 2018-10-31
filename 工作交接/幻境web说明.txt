@@ -1,0 +1,66 @@
+框架：
+	画图：hightchart
+	组件：iview
+	CSS： less
+	
+vue-cli2.0
+	开发环境：
+		配置测试接口：
+			1.测试服务器 config/index.js host="192.168.2.92"
+			2.代理测试接口 dev/proxyTable 添加需要代理的url
+		
+		启动测试环境： npm run dev
+		编译： npm run build
+
+web自定义组件src/comnents/common:
+	cell 封装vue函数式组件
+	inputs 封装的输入框
+	Modal 封装的弹出框
+	pagination 封装的分页组件
+	search 封装的搜索组件
+	Tables 封装的表格组件
+	Loading 封装的加载组件
+	Leftbar 封装的左侧菜单栏（各个顶部菜单栏调用/）
+	noticeModal 弹窗（已废弃）
+	expandrow 详情弹窗记录详情
+	detailModal 首页/渗透攻击/详情弹窗
+	flieimport 安全策略/准入管理/主机备注/导入execl
+
+新功能添加
+	1.顶部菜单添加：
+		在src/components/navbar/index.vue 添加需要新增的菜单。
+		在src routes 文件夹添加路由对照表（位置为src/components/context/xxxxx）。
+	2.左侧菜单栏添加：
+		在 src/components/context/xxxxx文件夹下添加index.vue。
+		引入 src/components/navbar/leftbar.vue。
+		配置menudata数组（leftbar渲染时会取出数组内容并渲染为左侧菜单）。
+		在src routes 文件夹添加路由对照表（位置为src/components/context/xxxxx/yyyyyy[文件夹]或者yyyyyy.vue）。
+	2.具体页面添加
+		在src/components/context/xxxxx文件夹下添加yyy.vue
+		一般包括：
+			标题栏右侧按钮（新建，删除，自定义等）
+			搜索插槽
+			table（自己封装的）组件
+				里面包括封装的inputs和分页组件
+			modal弹出框组件（添加，编辑记录时要用）
+
+控制台输入code_version可以查看web的git版本号
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
